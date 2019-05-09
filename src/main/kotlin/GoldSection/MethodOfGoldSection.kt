@@ -1,4 +1,8 @@
+package GoldSection
+
 import common.*
+import common.DefaultImplementation.DefaultParametrizer
+import common.DefaultImplementation.MinimizationResultsDefault
 
 
 /**

@@ -1,4 +1,8 @@
+package DividingToHalfes
+
 import common.*
+import common.DefaultImplementation.DefaultParametrizer
+import common.DefaultImplementation.MinimizationResultsDefault
 
 /**
  * Used if Function Has only one local minimum otherwise, it will

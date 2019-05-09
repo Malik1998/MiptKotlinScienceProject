@@ -1,4 +1,6 @@
-package common
+package common.DefaultImplementation
+
+import common.MinimizationResult
 
 class MinimizationResultsDefault(
     override var minPoint: Double,

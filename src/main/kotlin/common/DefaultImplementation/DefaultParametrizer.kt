@@ -1,4 +1,6 @@
-package common
+package common.DefaultImplementation
+
+import common.Params
 
 class DefaultParametrizer(override var boarderA: Double = 0.0,
                           override var boarderB: Double = 1.0,
