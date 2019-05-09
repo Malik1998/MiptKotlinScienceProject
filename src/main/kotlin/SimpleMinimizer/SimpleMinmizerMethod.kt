@@ -1,7 +1,8 @@
-package common.DefaultImplementation
+package SimpleMinimizer
 
-import SimpleMinimizer.ParametrizerWithN
 import common.*
+import common.DefaultImplementation.MinimizationResultsDefault
+import common.DefaultImplementation.DefaultParametrizerWithN
 
 
 /**
@@ -9,7 +10,7 @@ import common.*
  * Just iterate through N points
  */
 class SimpleMinmizerMethod(override var function: (Double) -> Double,
-                           var params: ParametrizerWithN = ParametrizerWithN()
+                           var params: ParamsWithN = DefaultParametrizerWithN()
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {

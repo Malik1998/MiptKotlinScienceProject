@@ -4,8 +4,6 @@ package method
 import Deriviative.MinimizerWithDerviativeWithBoarders
 import Deriviative.MinimizerWithDerviativeWithoutBoarders
 import org.junit.Test
-import common.DefaultImplementation.SimpleMinmizerMethod;
-import SimpleMinimizer.ParametrizerWithN
 import common.DefaultImplementation.DefaultParametrizerDerviative
 import org.junit.Assert
 
