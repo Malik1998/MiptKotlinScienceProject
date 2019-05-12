@@ -2,7 +2,7 @@ package implementation
 
 import api.MinimizationResult
 import api.Params
-import api.ParamsDerviative
+import api.ParamsDerivative
 import api.ParamsWithN
 
 
@@ -26,7 +26,7 @@ open class DefaultParams(override var boarderA: Double = 0.0,
 class DefaultParamsDerivative(override var boarderA: Double = 0.0,
                               override var boarderB: Double = 1.0,
                               override var EPS: Double = 1e-5,
-                              override var learningRate: Double = 1e-2) : ParamsDerviative
+                              override var learningRate: Double = 1e-2) : ParamsDerivative
 
 
 /**

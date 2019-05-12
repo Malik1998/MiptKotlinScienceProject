@@ -1,14 +1,14 @@
 package implementation
 
-import api.FunctionMinimizerWithDerviativeWithBoarders
-import api.FunctionMinimizerWithDerviativeWithoutBoarders
+import api.FunctionMinimizerWithDerivativeWithBoarders
+import api.FunctionMinimizerWithDerivativeWithoutBoarders
 import api.MinimizationResult
-import api.ParamsDerviative
+import api.ParamsDerivative
 
 open class MinimizerWithDerivativeWithBoarders(override var function: (Double) -> Double,
                                                override var deriviative: (Double) -> Double,
-                                               override var params: ParamsDerviative = DefaultParamsDerivative()
-) : FunctionMinimizerWithDerviativeWithBoarders {
+                                               override var params: ParamsDerivative = DefaultParamsDerivative()
+) : FunctionMinimizerWithDerivativeWithBoarders {
 
     open fun isIn(x : Double) : Boolean {
         return x <= params.boarderB && params.boarderA <= x
@@ -39,7 +39,7 @@ open class MinimizerWithDerivativeWithBoarders(override var function: (Double) -
 class MinimizerWithDerivativeWithoutBoarders(
     override var deriviative: (Double) -> Double,
     override var function: (Double) -> Double
-) : FunctionMinimizerWithDerviativeWithoutBoarders,  MinimizerWithDerivativeWithBoarders(function, deriviative) {
+) : FunctionMinimizerWithDerivativeWithoutBoarders,  MinimizerWithDerivativeWithBoarders(function, deriviative) {
 
     override fun isIn(x: Double) : Boolean {
         return true
