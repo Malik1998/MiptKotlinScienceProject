@@ -1,4 +1,4 @@
-package common
+package api
 
 interface FunctionMinimizerWithDerviativeWithBoarders : FunctionMinimizerWithDerviativeWithoutBoarders {
     var params: ParamsDerviative

@@ -1,8 +1,8 @@
-package GoldSection
+package implementation
 
-import common.*
-import common.DefaultImplementation.DefaultParametrizer
-import common.DefaultImplementation.MinimizationResultsDefault
+import api.FunctionMinimizer
+import api.MinimizationResult
+import api.Params
 
 
 /**
@@ -13,7 +13,7 @@ import common.DefaultImplementation.MinimizationResultsDefault
  */
 
 class MethodOfGoldSection(override var function: (Double) -> Double,
-                          var params: Params = DefaultParametrizer()
+                          var params: Params = DefaultParams()
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {
@@ -43,7 +43,7 @@ class MethodOfGoldSection(override var function: (Double) -> Double,
 
         } while ((b - a) > params.EPS)
 
-        return MinimizationResultsDefault(a, function(a))
+        return DefaultMinimizationResults(a, function(a))
 
     }
 }

@@ -1,12 +1,13 @@
-package Deriviative
+package implementation
 
-import common.*
-import common.DefaultImplementation.DefaultParametrizerDerviative
-import common.DefaultImplementation.MinimizationResultsDefault
+import api.FunctionMinimizerWithDerviativeWithBoarders
+import api.FunctionMinimizerWithDerviativeWithoutBoarders
+import api.MinimizationResult
+import api.ParamsDerviative
 
-open class MinimizerWithDerviativeWithBoarders(override var function: (Double) -> Double,
+open class MinimizerWithDerivativeWithBoarders(override var function: (Double) -> Double,
                                                override var deriviative: (Double) -> Double,
-                                               override var params: ParamsDerviative = DefaultParametrizerDerviative()
+                                               override var params: ParamsDerviative = DefaultParamsDerivative()
 ) : FunctionMinimizerWithDerviativeWithBoarders {
 
     open fun isIn(x : Double) : Boolean {
@@ -31,14 +32,14 @@ open class MinimizerWithDerviativeWithBoarders(override var function: (Double) -
 
         } while (Math.abs(curX - predX) > params.EPS * 0.5  && isIn(curX))
 
-        return MinimizationResultsDefault(curX, function(curX))
+        return DefaultMinimizationResults(curX, function(curX))
     }
 }
 
-class MinimizerWithDerviativeWithoutBoarders(
+class MinimizerWithDerivativeWithoutBoarders(
     override var deriviative: (Double) -> Double,
     override var function: (Double) -> Double
-) : FunctionMinimizerWithDerviativeWithoutBoarders,  MinimizerWithDerviativeWithBoarders(function, deriviative) {
+) : FunctionMinimizerWithDerviativeWithoutBoarders,  MinimizerWithDerivativeWithBoarders(function, deriviative) {
 
     override fun isIn(x: Double) : Boolean {
         return true

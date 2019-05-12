@@ -1,10 +1,8 @@
-package Prabola
+package implementation
 
-import common.DefaultImplementation.DefaultParametrizer
-import common.DefaultImplementation.MinimizationResultsDefault
-import common.FunctionMinimizer
-import common.MinimizationResult
-import common.Params
+import api.FunctionMinimizer
+import api.MinimizationResult
+import api.Params
 import java.lang.Math.abs
 
 
@@ -18,7 +16,7 @@ import java.lang.Math.abs
  */
 
 class ParabolaMethodMinimizer(override var function: (Double) -> Double,
-                          var params: Params = DefaultParametrizer()
+                          var params: Params = DefaultParams()
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {
@@ -42,7 +40,7 @@ class ParabolaMethodMinimizer(override var function: (Double) -> Double,
 
         } while (abs(xPred - xCur) > params.EPS * 0.5)
 
-        return MinimizationResultsDefault(xCur, function(xCur))
+        return DefaultMinimizationResults(xCur, function(xCur))
 
     }
 }

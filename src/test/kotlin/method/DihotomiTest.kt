@@ -1,16 +1,17 @@
 package method
 
 import org.junit.Test
-import Dihotomi.MethodOfDihotomi;
-import common.DefaultImplementation.DefaultParametrizer
+import implementation.MethodOfDihotomi;
+import implementation.DefaultParams
 import org.junit.Assert
 
 class DihotomiTest {
 
     @Test
     fun SimpleTest() {
-        val minimizer = MethodOfDihotomi({ x -> 2 * x * x - 1 },
-            DefaultParametrizer(0.0, 1.0, 1e-2)
+        val minimizer = MethodOfDihotomi(
+            { x -> 2 * x * x - 1 },
+            DefaultParams(0.0, 1.0, 1e-2)
         )
 
         val results = minimizer.minimize()
@@ -21,8 +22,9 @@ class DihotomiTest {
 
     @Test
     fun SimpleTestWithNotNull() {
-        val minimizer = MethodOfDihotomi({ x -> 2 * x * x - 1 },
-            DefaultParametrizer(1.0, 2.0, 1e-2)
+        val minimizer = MethodOfDihotomi(
+            { x -> 2 * x * x - 1 },
+            DefaultParams(1.0, 2.0, 1e-2)
         )
 
         val results = minimizer.minimize()

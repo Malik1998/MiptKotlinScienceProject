@@ -1,9 +1,9 @@
 package method
 
 
-import Prabola.ParabolaMethodMinimizer
+import implementation.ParabolaMethodMinimizer
 import org.junit.Test
-import common.DefaultImplementation.DefaultParametrizer
+import implementation.DefaultParams
 import org.junit.Assert
 import java.lang.Math.*
 
@@ -11,8 +11,9 @@ class ParabolaMethodTest {
 
     @Test
     fun SimpleTest() {
-        val minimizer = ParabolaMethodMinimizer({ x -> 2 * x * x - 1 },
-            DefaultParametrizer(0.0, 1.0, 1e-2)
+        val minimizer = ParabolaMethodMinimizer(
+            { x -> 2 * x * x - 1 },
+            DefaultParams(0.0, 1.0, 1e-2)
         )
 
         val results = minimizer.minimize()
@@ -23,8 +24,9 @@ class ParabolaMethodTest {
 
     @Test
     fun SimpleTestWithNotNull() {
-        val minimizer = ParabolaMethodMinimizer({ x -> cos(x) },
-            DefaultParametrizer(0.5 * Math.PI, 1.5 * Math.PI, 1e-5)
+        val minimizer = ParabolaMethodMinimizer(
+            { x -> cos(x) },
+            DefaultParams(0.5 * PI, 1.5 * PI, 1e-5)
         )
 
         val results = minimizer.minimize()

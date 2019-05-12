@@ -1,8 +1,8 @@
-package DividingToHalfes
+package implementation
 
-import common.*
-import common.DefaultImplementation.DefaultParametrizer
-import common.DefaultImplementation.MinimizationResultsDefault
+import api.FunctionMinimizer
+import api.MinimizationResult
+import api.Params
 
 /**
  * Used if Function Has only one local minimum otherwise, it will
@@ -12,7 +12,7 @@ import common.DefaultImplementation.MinimizationResultsDefault
  */
 
 class MethodOfDividingToHalfes(override var function: (Double) -> (Double),
-                               var params: Params = DefaultParametrizer()
+                               var params: Params = DefaultParams()
                                 ) : FunctionMinimizer {
 
 
@@ -42,7 +42,7 @@ class MethodOfDividingToHalfes(override var function: (Double) -> (Double),
 
         } while (L > params.EPS)
 
-        return MinimizationResultsDefault(curX, function(curX))
+        return DefaultMinimizationResults(curX, function(curX))
 
     }
 }
