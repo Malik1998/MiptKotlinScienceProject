@@ -1,11 +1,12 @@
 package method
 
 
+import api.Params
 import implementation.ParabolaMethodMinimizer
-import org.junit.Test
-import implementation.DefaultParams
 import org.junit.Assert
-import java.lang.Math.*
+import org.junit.Test
+import java.lang.Math.PI
+import java.lang.Math.cos
 
 class ParabolaMethodTest {
 
@@ -13,7 +14,7 @@ class ParabolaMethodTest {
     fun SimpleTest() {
         val minimizer = ParabolaMethodMinimizer(
             { x -> 2 * x * x - 1 },
-            DefaultParams(0.0, 1.0, 1e-2)
+            Params.of(0.0, 1.0, 1e-2)
         )
 
         val results = minimizer.minimize()
@@ -26,7 +27,7 @@ class ParabolaMethodTest {
     fun SimpleTestWithNotNull() {
         val minimizer = ParabolaMethodMinimizer(
             { x -> cos(x) },
-            DefaultParams(0.5 * PI, 1.5 * PI, 1e-5)
+            Params.of(0.5 * PI, 1.5 * PI, 1e-5)
         )
 
         val results = minimizer.minimize()

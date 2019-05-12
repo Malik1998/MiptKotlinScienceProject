@@ -1,10 +1,10 @@
 package method
 
 
-import org.junit.Test
-import implementation.MethodOfDividingToHalfes;
-import implementation.DefaultParams
+import api.Params
+import implementation.MethodOfDividingToHalfes
 import org.junit.Assert
+import org.junit.Test
 
 class DividingToHalfesTest {
 
@@ -13,7 +13,7 @@ class DividingToHalfesTest {
         val minimizer =
             MethodOfDividingToHalfes(
                 { x -> 2 * x * x - 1 },
-                DefaultParams(0.0, 1.0, 1e-2)
+                Params.of(0.0, 1.0, 1e-2)
             )
 
         val results = minimizer.minimize()
@@ -27,7 +27,7 @@ class DividingToHalfesTest {
         val minimizer =
             MethodOfDividingToHalfes(
                 { x -> 2 * x * x - 1 },
-                DefaultParams(1.0, 2.0, 1e-5)
+                Params.of(1.0, 2.0, 1e-5)
             )
 
         val results = minimizer.minimize()

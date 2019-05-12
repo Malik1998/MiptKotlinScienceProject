@@ -15,8 +15,9 @@ import java.lang.Math.abs
  *
  */
 
-class ParabolaMethodMinimizer(override var function: (Double) -> Double,
-                          var params: Params = DefaultParams()
+class ParabolaMethodMinimizer(
+    override var function: (Double) -> Double,
+    var params: Params = Params.default
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {
@@ -28,7 +29,7 @@ class ParabolaMethodMinimizer(override var function: (Double) -> Double,
 
         do {
 
-            val temp =  xPred - 0.5 * h * (function(xPred + h) - function(xPred + h)) /
+            val temp = xPred - 0.5 * h * (function(xPred + h) - function(xPred + h)) /
                     (function(xPred + h) - 2 * function(xPred) + function(xPred - h))
 
             xPred = xCur
@@ -40,7 +41,7 @@ class ParabolaMethodMinimizer(override var function: (Double) -> Double,
 
         } while (abs(xPred - xCur) > params.EPS * 0.5)
 
-        return DefaultMinimizationResults(xCur, function(xCur))
+        return MinimizationResult(xCur, function(xCur))
 
     }
 }

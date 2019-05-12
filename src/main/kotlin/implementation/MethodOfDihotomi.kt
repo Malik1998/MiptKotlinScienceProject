@@ -10,8 +10,9 @@ import api.Params
  * Dihotomii method of function minimization
  *
  */
-class MethodOfDihotomi(override var function: (Double) -> Double,
-                       var params: Params = DefaultParams()
+class MethodOfDihotomi(
+    override var function: (Double) -> Double,
+    var params: Params = Params.default
 ) : FunctionMinimizer {
     override fun minimize(): MinimizationResult {
 
@@ -27,8 +28,8 @@ class MethodOfDihotomi(override var function: (Double) -> Double,
             } else {
                 a = x0
             }
-        } while(Math.abs(b - a) > params.EPS)
+        } while (Math.abs(b - a) > params.EPS)
 
-        return DefaultMinimizationResults(a, function(a))
+        return MinimizationResult(a, function(a))
     }
 }

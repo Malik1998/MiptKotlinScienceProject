@@ -9,8 +9,9 @@ import api.ParamsWithN
  *
  * Just iterate through N points
  */
-class SimpleMinmizerMethod(override var function: (Double) -> Double,
-                           var params: ParamsWithN = DefaultParamsWithN()
+class SimpleMinmizerMethod(
+    override var function: (Double) -> Double,
+    var params: ParamsWithN = ParamsWithN()
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {
@@ -30,7 +31,7 @@ class SimpleMinmizerMethod(override var function: (Double) -> Double,
         }
 
 
-        return DefaultMinimizationResults(minX, minVal)
+        return MinimizationResult(minX, minVal)
 
     }
 }

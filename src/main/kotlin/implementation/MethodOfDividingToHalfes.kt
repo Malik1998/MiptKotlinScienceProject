@@ -8,12 +8,13 @@ import api.Params
  * Used if Function Has only one local minimum otherwise, it will
  * not give reasonable answer
  *
- * 
+ *
  */
 
-class MethodOfDividingToHalfes(override var function: (Double) -> (Double),
-                               var params: Params = DefaultParams()
-                                ) : FunctionMinimizer {
+class MethodOfDividingToHalfes(
+    override var function: (Double) -> (Double),
+    var params: Params = Params.default
+) : FunctionMinimizer {
 
 
     override fun minimize(): MinimizationResult {
@@ -42,7 +43,7 @@ class MethodOfDividingToHalfes(override var function: (Double) -> (Double),
 
         } while (L > params.EPS)
 
-        return DefaultMinimizationResults(curX, function(curX))
+        return MinimizationResult(curX, function(curX))
 
     }
 }

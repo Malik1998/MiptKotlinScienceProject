@@ -12,8 +12,9 @@ import api.Params
  *
  */
 
-class MethodOfGoldSection(override var function: (Double) -> Double,
-                          var params: Params = DefaultParams()
+class MethodOfGoldSection(
+    override var function: (Double) -> Double,
+    var params: Params = Params.default
 ) : FunctionMinimizer {
 
     override fun minimize(): MinimizationResult {
@@ -28,7 +29,7 @@ class MethodOfGoldSection(override var function: (Double) -> Double,
 
         do {
 
-            lam =  a + (1 - tau) * (b - a)
+            lam = a + (1 - tau) * (b - a)
 
             qui = a + tau * (b - a)
 
@@ -43,7 +44,7 @@ class MethodOfGoldSection(override var function: (Double) -> Double,
 
         } while ((b - a) > params.EPS)
 
-        return DefaultMinimizationResults(a, function(a))
+        return MinimizationResult(a, function(a))
 
     }
 }

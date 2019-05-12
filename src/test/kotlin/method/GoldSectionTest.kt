@@ -1,10 +1,10 @@
 package method
 
 
-import org.junit.Test
-import implementation.MethodOfGoldSection;
-import implementation.DefaultParams
+import api.Params
+import implementation.MethodOfGoldSection
 import org.junit.Assert
+import org.junit.Test
 
 class GoldSectionTest {
 
@@ -12,7 +12,7 @@ class GoldSectionTest {
     fun SimpleTest() {
         val minimizer = MethodOfGoldSection(
             { x -> 2 * x * x - 1 },
-            DefaultParams(0.0, 1.0, 1e-2)
+            Params.of(0.0, 1.0, 1e-2)
         )
 
         val results = minimizer.minimize()
@@ -25,7 +25,7 @@ class GoldSectionTest {
     fun SimpleTestWithNotNull() {
         val minimizer = MethodOfGoldSection(
             { x -> 2 * x * x - 1 },
-            DefaultParams(1.0, 2.0, 1e-5)
+            Params.of(1.0, 2.0, 1e-5)
         )
 
         val results = minimizer.minimize()

@@ -1,10 +1,10 @@
 package method
 
 
-import org.junit.Test
-import implementation.SimpleMinmizerMethod;
-import implementation.DefaultParamsWithN
+import api.ParamsWithN
+import implementation.SimpleMinmizerMethod
 import org.junit.Assert
+import org.junit.Test
 
 class SimpleTest {
 
@@ -12,7 +12,7 @@ class SimpleTest {
     fun SimpleTest() {
         val minimizer = SimpleMinmizerMethod(
             { x -> 2 * x * x - 1 },
-            DefaultParamsWithN(0.0, 1.0, 1e-2, 1000)
+            ParamsWithN(0.0, 1.0, 1e-2, 1000)
         )
 
         val results = minimizer.minimize()
@@ -25,7 +25,7 @@ class SimpleTest {
     fun SimpleTestWithNotNull() {
         val minimizer = SimpleMinmizerMethod(
             { x -> 2 * x * x - 1 },
-            DefaultParamsWithN(1.0, 2.0, 1e-5, 100)
+            ParamsWithN(1.0, 2.0, 1e-5, 100)
         )
 
         val results = minimizer.minimize()

@@ -1,11 +1,11 @@
 package method
 
 
+import api.ParamsDerivative
 import implementation.MinimizerWithDerivativeWithBoarders
 import implementation.MinimizerWithDerivativeWithoutBoarders
-import org.junit.Test
-import implementation.DefaultParamsDerivative
 import org.junit.Assert
+import org.junit.Test
 
 class WithDerviativeTest {
 
@@ -25,7 +25,7 @@ class WithDerviativeTest {
         val minimizer = MinimizerWithDerivativeWithBoarders(
             function = { x -> 2 * x * x - 1 },
             deriviative = { x -> 4 * x },
-            params = DefaultParamsDerivative(-5.0, 5.0)
+            params = ParamsDerivative(-5.0, 5.0)
         )
 
         val results = minimizer.minimize()
